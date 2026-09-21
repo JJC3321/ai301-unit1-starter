@@ -1,0 +1,809 @@
+{
+  "rubric": "..\\skill\\rubric.md",
+  "model": "sonnet",
+  "agreement": [
+    19,
+    20
+  ],
+  "results": [
+    {
+      "id": "issue-01",
+      "verdict": "accept",
+      "failed_checks": [
+        "has-good-first-label"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; all 5 last default-branch commits dated 2026-08-04, one day before capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "Repo-facts: assignees: none; linked PRs: none; 0 comments in thread \u2014 no claim language"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Documentation task with fully specified proposed changes and detailed content notes per file; no unsettled design debate (0 comments), no policy invention needed"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md 'Generative AI': tools welcome; only requirement is to review and understand AI-generated content before submitting"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "fail",
+          "evidence": "Only label present is type::documentation; no good-first-issue or equivalent newcomer label"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-02",
+      "verdict": "reject",
+      "failed_checks": [
+        "repo-alive",
+        "has-good-first-label"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "fail",
+          "evidence": "Most recent default-branch commit is 2023-12-09, more than 365 days before capture date 2026-08-05; no commit falls within the window."
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Bundle header: state open."
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "Assignees: none; linked PRs: none; comments are an auto-reply and a fork advertisement, not work claims."
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Single bounded sed portability bug with reproduction steps, expected behavior, and a candidate one-line fix provided in the body."
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "No CONTRIBUTING.md and no stated policy; silence passes per rubric."
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "fail",
+          "evidence": "Labels: none."
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-03",
+      "verdict": "reject",
+      "failed_checks": [
+        "unclaimed"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; most recent commit 2026-08-03 is within 365 days of capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "fail",
+          "evidence": "Linked PR pylint-dev/pylint#10985 is open; collaborator DanielNoord (2026-05-11, within 90-day window) explicitly states 'We are not looking for any other contributions other than @hamza-mobeen's PR'"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Ask is bounded: add a reporter class following existing interface, with pylint-junit as a reference implementation and clear expected behavior"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "No AI ban stated; repo ships AGENTS.md instructions for AI coding agents"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Labels include 'Good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-04",
+      "verdict": "accept",
+      "failed_checks": [],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; all 5 default-branch commits dated 2026-08-04, one day before capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "state: open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PRs: none; 0 comments, no claim language present"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Collaborator-filed bug naming specific missing rule previews; no design debate, no core-internals flag, bounded repeatable task"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md has no statement on AI or contribution tooling; silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Labels include 'good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-05",
+      "verdict": "reject",
+      "failed_checks": [
+        "unclaimed",
+        "newcomer-scope"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; most recent commit 2026-08-04 is 1 day before capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "issue header states: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "fail",
+          "evidence": "linked PRs #28815, #28817, and #28839 are all in state open \u2014 condition (2) fails"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "fail",
+          "evidence": "umbrella/tracking issue inviting contributions to any part of the codebase; 12 linked PRs across disparate files; no single bounded task defined \u2014 fits the 'umbrella / megaissue / tracking list of sub-items' fail condition"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md: no statement on AI or contribution tooling; silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "issue labels include 'good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-06",
+      "verdict": "accept",
+      "failed_checks": [],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; latest default-branch commit 2026-07-14 is 22 days before capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PRs: none; 0 comments, no claim language present"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "single UI bug (button visibility/functionality) with three concrete acceptance criteria and explicit file pointers to src/app/components/header/ and mobile-menu/"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md has no statement on AI or contribution tooling; silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "labels include 'good first issue' and 'easy'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-07",
+      "verdict": "reject",
+      "failed_checks": [
+        "repo-alive",
+        "has-good-first-label"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "fail",
+          "evidence": "Most recent default-branch commit is 2025-02-10, which is ~18 months before the capture date of 2026-08-05, outside the 365-day window."
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header states state open."
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none, linked PRs: none, and 0 comments so no claim language exists."
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Concrete bug with full stack trace, exact crash site in get_ith_path lambda, and a clear null-guard fix \u2014 not an umbrella, no unsettled design debate."
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "No CONTRIBUTING.md and no stated policy; silence passes per rubric."
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "fail",
+          "evidence": "labels: none \u2014 no newcomer label present."
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-08",
+      "verdict": "reject",
+      "failed_checks": [
+        "unclaimed",
+        "newcomer-scope"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; most recent default-branch commit is 2026-08-03, 2 days before capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "fail",
+          "evidence": "assignees: piyushagarwal-55 (not none); linked PR #39811 is open; no abandon comment or maintainer release as of capture date"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "fail",
+          "evidence": "Issue body requires design-team confirmation before implementing (flexbox\u2192CSS grid); data-attribute architecture question left unresolved by maintainer on 2026-07-24"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "Policy states AI tools allowed with understand/test/explain conditions; no outright ban"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Labels include 'good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-09",
+      "verdict": "accept",
+      "failed_checks": [],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; all 5 default-branch commits dated 2026-08-04, within 1 day of capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header states: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PR #11627 is closed; only claim comment (MesaJonathan, 2022-01-20) is ~4 years before capture date, outside the 90-day window"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "MEMBER-filed single-flag feature request with concrete acceptance example (channels: []); no umbrella structure or unsettled design debate"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "Policy says 'generative AI tools welcome'; review/understand requirement is a condition, not a ban"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Labels include 'good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-10",
+      "verdict": "reject",
+      "failed_checks": [
+        "newcomer-scope"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; most recent default-branch commit dated 2026-08-05, same as capture date"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header shows state: open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; no open linked PRs; only specific claim (estershuli, 2026-02-12) is 174 days old, outside 90-day window"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "fail",
+          "evidence": "Issue is explicitly titled 'Documentation request megaissue' and body is a tracking list of 120+ sub-issue numbers"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "Policy closes AI PRs 'without human review' \u2014 a human-review condition, not an outright ban"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Labels include 'good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-11",
+      "verdict": "accept",
+      "failed_checks": [
+        "has-good-first-label"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; last 5 commits all dated 2026-08-04, one day before capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PRs: none; 0 comments \u2014 no claim language"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Collaborator-filed bug with concrete symptom (rewrite fires multiple times per click); no fail conditions met"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md has no statement on AI or contribution tooling \u2014 silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "fail",
+          "evidence": "Labels: 'Type: bug, Category: Proof mode, Priority: Medium' \u2014 no newcomer label"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-12",
+      "verdict": "reject",
+      "failed_checks": [
+        "ai-policy-ok"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; most recent default-branch commit is 2026-08-12, same day as capture date"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header states state: open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PRs: none; jrings claim (2024-09-19) is ~692 days before capture date, outside the 90-day window"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Concrete behavior specified (12% blended progress example); maintainer resolved the key design question (HTML/CSS with Bulma, screen-reader accessible); not an umbrella issue"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "fail",
+          "evidence": "CONTRIBUTING.md: \"We do not accept AI-generated code or documentation.\" \u2014 explicit ban"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Labels include 'good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-13",
+      "verdict": "reject",
+      "failed_checks": [
+        "unclaimed"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; most recent default-branch commit is 2026-08-03, 2 days before capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header states state: open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "fail",
+          "evidence": "Two linked PRs in state open: kubernetes/minikube#23438 and kubernetes/minikube#23439"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Fix is replace spaces with tabs in four named files; reference packages called out; no design debate"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md: no statement on AI or contribution tooling \u2014 silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Issue carries the 'good first issue' label"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-14",
+      "verdict": "accept",
+      "failed_checks": [],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; most recent default-branch commit dated 2026-08-05, same day as capture date (0 days, within 365-day threshold)"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PRs: none; 0 comments \u2014 no claim language present"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Documentation-only change; six files named with exact line numbers and replacement text; acceptance criterion is a single grep returning empty; no design debate or open questions"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md: no statement on AI or contribution tooling \u2014 silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Issue labels include 'good first issue' verbatim"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-15",
+      "verdict": "reject",
+      "failed_checks": [
+        "unclaimed"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; most recent commit 2026-08-03 is 2 days before capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "unclear",
+          "evidence": "Assignees: none and linked PRs both closed, but bundle shows only 40 of 97 comments; the 90-day window (2026-05-07 to 2026-08-05) is entirely in the unshown 57 comments, making claim-language check impossible"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Single bounded change: add `command` field and trim `text` field in outgoing webhook; maintainer eeshangarg closed design question by 2021-10-25 with concrete example payload provided"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "Policy allows AI tools with understanding/testing requirements; no outright ban"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Labels include 'good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-16",
+      "verdict": "accept",
+      "failed_checks": [
+        "has-good-first-label"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; all 5 last default-branch commits dated 2026-08-04, one day before the 2026-08-05 capture date"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PRs: none; 0 comments, so no claim language exists"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Specific bug: channel notices emit raw text to stderr under --json, breaking JSON parsing; bounded fix, no design debate, no maintainer red flag"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "Policy: 'generative AI tools welcome; you are responsible for all contributions and must review and understand AI-generated content' \u2014 disclosure requirement, not a ban"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "fail",
+          "evidence": "Only label present is type::bug; no good-first-issue or equivalent newcomer label"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-17",
+      "verdict": "reject",
+      "failed_checks": [
+        "repo-alive",
+        "has-good-first-label"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "fail",
+          "evidence": "Repo-facts line states 'archived: yes'; the archived flag must be 'no' to pass."
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: 'state open'."
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "Repo-facts: assignees none, linked PRs none; Comments section shows 0 comments, so no claim language exists."
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Owner-filed bug with debug trace and HTML attachment; body hypothesizes a parser format change \u2014 a bounded, concrete fix."
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "No CONTRIBUTING.md and no stated policy; silence passes."
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "fail",
+          "evidence": "Issue labels: none \u2014 no newcomer label present."
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-18",
+      "verdict": "reject",
+      "failed_checks": [
+        "unclaimed"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; all 5 default-branch commits dated 2026-08-04, one day before the 2026-08-05 capture date"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "Issue header: state open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "fail",
+          "evidence": "Three open linked PRs on the main repo: #9685, #10371, #11656 (plus LennyMalcolm0/excalidraw#314 open); rubric requires no linked PR in state open"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "pass",
+          "evidence": "Bounded ask (hide line option in Tab switcher when arrow is bound); maintainer dwelle gave explicit decision: 'Yep, let's do this'"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md: no statement on AI or contribution tooling \u2014 silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "pass",
+          "evidence": "Issue labels include 'good first issue'"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-19",
+      "verdict": "reject",
+      "failed_checks": [
+        "newcomer-scope",
+        "has-good-first-label"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; all 5 default-branch commits dated 2026-08-04, within 1 day of capture date 2026-08-05"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "state: open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PRs: none; 0 comments, no claim language"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "fail",
+          "evidence": "Body lists 5 distinct sub-items (2 root causes + 3 architectural additions including multiprocessing and threading), forming an umbrella issue requiring core internals changes"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md has no statement on AI or contribution tooling; silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "fail",
+          "evidence": "Labels are 'Type: bug, Category: Proof mode, Priority: High'; no newcomer label present"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "issue-20",
+      "verdict": "reject",
+      "failed_checks": [
+        "newcomer-scope",
+        "has-good-first-label"
+      ],
+      "checks": [
+        {
+          "name": "repo-alive",
+          "grade": "pass",
+          "evidence": "archived: no; all 5 default-branch commits dated 2026-08-04, one day before capture date"
+        },
+        {
+          "name": "issue-open",
+          "grade": "pass",
+          "evidence": "state: open"
+        },
+        {
+          "name": "unclaimed",
+          "grade": "pass",
+          "evidence": "assignees: none; linked PRs: none; 0 comments, no claim language"
+        },
+        {
+          "name": "newcomer-scope",
+          "grade": "fail",
+          "evidence": "'Logo asset TBD' is unresolved product policy; adding a new element type (toolbar, model, renderer, exporter) is deep internals work with no maintainer scoping"
+        },
+        {
+          "name": "ai-policy-ok",
+          "grade": "pass",
+          "evidence": "CONTRIBUTING.md has no statement on AI or contribution tooling \u2014 silence passes"
+        },
+        {
+          "name": "has-good-first-label",
+          "grade": "fail",
+          "evidence": "labels: none"
+        }
+      ],
+      "error": null
+    }
+  ]
+}
