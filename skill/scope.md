@@ -14,7 +14,7 @@ Two parts. Staff wrote the first; you write the second.
 
 Only issues in the course's Path Review repository are candidates:
 
-- Repo: `<ORG>/<PATH-REVIEW-REPO>` <!-- paste your section's repo from the Unit 1 Check-In page -->
+- Repo: `codepath/pathreview-ai301-fa26-s3`
 
 Do not search, fetch, or grade issues from any other repository, however
 promising. The wider GitHub comes later in the course; for now the field
@@ -30,10 +30,12 @@ else in the rubric applies as written.
 
 ## Your fit profile
 
-<!-- YOU write this part: a few sentences about you. What languages and
-tools you have actually used, what you want to get better at, anything
-you want to avoid. The skill uses this only to RANK the issues your
-rubric accepts, never to change a verdict: fit cannot rescue an issue
-your rubric rejects, and cannot sink one it accepts. -->
-
-(Write a few sentences here.)
+I am comfortable in Python and TypeScript/React (FastAPI-style backends,
+Vite dashboards, CopilotKit/agent UIs) and also write a fair amount of
+C++ for systems and DSA work. I have already contributed to Path Review
+(ingestion/resume parsing) and built AI tooling such as Open-Source-Hunter,
+so I prefer issues in `api/`, `ingestion/`, `rag/`, `agent/`, or `safety/`
+over pure CSS or copy polish. I want more practice shipping bounded OSS
+fixes with tests and clear acceptance criteria. Rank lower: vague design
+debates, UI-only styling with no behavior change, and anything that needs
+heavy product policy I would have to invent.

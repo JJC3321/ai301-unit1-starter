@@ -1,44 +1,16 @@
 # Rubric: is this a good first issue?
 
-<!--
-THIS IS THE PART YOU WRITE. The skill in SKILL.md executes whatever checks
-you define here. It ships empty on purpose: the judgment is your work.
-
-A filled rubric must contain:
-
-1. At least one row in the checks table. Each row needs all four columns:
-   - Check: a short name (used in the output JSON).
-   - Evidence: exactly what to look at, and where. Name the source
-     (repo-facts block, issue body, comment thread, or the locations in
-     references/evidence-guide.md). "The repo" is not a source; "the last
-     5 default-branch commit dates" is.
-   - Pass condition: a condition someone else could apply and get your
-     answer. Prefer thresholds with numbers ("a maintainer commented
-     within 30 days") over adjectives ("maintainer is responsive").
-   - Weight: `required` (a fail here rejects the issue) or `preferred`
-     (never changes the verdict; a nice-to-have that helps rank the
-     issues you accept).
-
-2. A verdict rule below the table: how the check grades combine into
-   accept or reject, including how `unclear` is treated. The verdict
-   space is binary. If you write no rule for `unclear`, the skill treats
-   it as fail.
-
-Cover what actually kills first contributions. The lecture named four
-families: the maintainer is alive, the repo is in use, the scope fits a
-newcomer, and nobody else is already on it. A rubric that ignores a family
-will fail eval issues designed around that family.
--->
-
 ## Checks
 
 | Check | Evidence | Pass condition | Weight |
 |---|---|---|---|
-|  |  |  |  |
+| `repo-alive` | Repo-facts block: the `archived:` flag on the repo line, and the dates in "last 5 default-branch commits". Measure every recency threshold against the bundle's capture date in eval mode, or against today in live mode. | `archived` is `no`, AND at least one of the last 5 default-branch commits is dated within 365 days of the capture date (eval) or today (live). Bot-authored commits count if they merge human work (a merge commit or Dependabot bump still shows the repo is moving). | required |
+| `issue-open` | Issue header in the bundle (or the live issue page): the `state` field. | State is `open`. | required |
+| `unclaimed` | Repo-facts "this issue" line for assignees and linked PRs; plus the Comments section for claim language ("I'll take this", "working on this", "can I work on this", "I've started"). | All of: (1) assignees is `none`; (2) no linked PR is in state `open`; (3) no claim comment in the last 90 days (relative to capture date / today) that a maintainer (Owner/Member/Collaborator) has not clearly released. A closed or merged linked PR alone is not a claim. A bot nudge or stale claim older than 90 days does not block. | required |
+| `newcomer-scope` | Issue title and body, plus the comment thread. | The ask is one bounded change a newcomer could finish without inventing product policy. Fail when any of these hold: the issue is an umbrella / megaissue / tracking list of sub-items; the thread shows unsettled design debate with no maintainer decision; the body is a one-line feature wish with no concrete behavior or acceptance criteria; a maintainer says the fix needs core internals redesign; or it is a usage/support question, not a contribution. Age alone does not fail the check. Short maintainer-filed bugs with a clear expected behavior pass. | required |
+| `ai-policy-ok` | Repo-facts "contribution policy" line (and any linked CONTRIBUTING / AI policy text quoted there). | The policy does not ban AI-generated code or documentation outright. Silence passes. Disclosure, "understand your changes", testing, or human-review requirements pass (those are conditions to follow, not bans). Only an explicit refusal such as "we do not accept AI-generated code/documentation" fails. | required |
+| `has-good-first-label` | Issue labels in the Issue header. | Labels include `good first issue`, `good-first-issue`, `easy`, or an equivalent newcomer label. | preferred |
 
 ## Verdict rule
 
-<!-- State how the grades above combine into accept or reject, and how
-unclear is treated. Example shape (write your own): "accept if every
-required check passes; preferred checks never change the verdict, they
-rank accepted issues; unclear counts as fail." -->
+Accept only if every `required` check grades `pass`. Any required `fail` or `unclear` makes the verdict `reject`. Preferred checks never change the verdict; on accepted issues they only help rank candidates.
