@@ -24,6 +24,42 @@ All three graded **accept**. No GitHub claim posted yet (selection only).
 
 ## Issue analysis
 
+### Scored eval issue: `issue-19` (zxcalc/zxlive#517)
+
+`issue-19` is the one scored item my rubric got wrong (gold **accept**,
+skill **reject**; `eval-run.txt` note: `failed: newcomer-scope,
+has-good-first-label (preferred)`). Only `newcomer-scope` caused the
+reject; the preferred label check cannot change a verdict.
+
+- **The issue.** "Selecting large subgraphs in proof mode freezes the
+  UI", filed by a COLLABORATOR, open, unassigned, no linked PRs, 0
+  comments, labels `Type: bug, Category: Proof mode, Priority: High`.
+  The body names "two potential causes which should be fixed" (slow
+  quadratic matchers; UI waiting on the matching thread) and then lists
+  three "Additional suggestions" (multiprocessing, matching only
+  expanded categories, applying rewrites in a separate thread).
+- **What the skill said** (`results.json`): `"Body lists 5 distinct
+  sub-items (2 root causes + 3 architectural additions including
+  multiprocessing and threading), forming an umbrella issue requiring
+  core internals changes"`.
+- **What gold says** (`gold-labels.json`): `"maintainer-diagnosed
+  performance bug with named causes, unclaimed"`.
+- **Why they disagree.** The grader treated a numbered list as a
+  tracking list of sub-items. It is one bug (the UI freeze) with a
+  maintainer's diagnosis attached; the "additional suggestions" are
+  optional, not acceptance criteria. The evidence string also merges
+  two different fail clauses ("umbrella" and "core internals
+  changes"), and no maintainer actually says a redesign is needed. So
+  the grader misread the clause, and the check made that easy because
+  it bundles five fail clauses into one pass/fail.
+- **Contrast.** `issue-04` (zxcalc/zxlive#555, same repo, same
+  maintainer, same capture date) is a short maintainer-filed bug and
+  passed `newcomer-scope`. The difference between the two is the shape
+  of the body, not the scope of the fix. That is the signal my rubric
+  overweights.
+
+### Live candidates (Path Review)
+
 Scoped source only: `codepath/pathreview-ai301-fa26-s3`. Three open
 `good first issue` / `tier-1` bugs were graded:
 
@@ -38,20 +74,80 @@ No AI ban in CONTRIBUTING (workflow conditions only).
 
 ## Check rationale
 
-Required checks applied the same way as in eval mode, with the Path
-Review house rule on claims:
+`skill/rubric.md` is the single source of truth for check wording.
+Everything quoted below is copied verbatim from it; if the rubric
+changes, this section must be re-quoted, not paraphrased.
 
-- `repo-alive` — pass for all three (alive repo, recent commits).
-- `issue-open` — pass for all three (`state: open`).
-- `unclaimed` — pass for all three: no assignees, no open linked PRs.
-  On `#68`, a student claim comment exists; house rule says classmate
-  claims do not block.
-- `newcomer-scope` — pass for all three: each is a collaborator-filed
-  bounded bug with named files/tests and no unsettled design debate.
-- `ai-policy-ok` — pass for all three: no outright AI ban.
-- `has-good-first-label` (preferred) — pass for all three.
+### `newcomer-scope` (the check that cost `issue-19`)
 
-Nothing was rejected; ranking used the fit profile only.
+The rubric's pass condition, quoted:
+
+> The ask is one bounded change a newcomer could finish without
+> inventing product policy. Fail when any of these hold: the issue is
+> an umbrella / megaissue / tracking list of sub-items; the thread
+> shows unsettled design debate with no maintainer decision; the body
+> is a one-line feature wish with no concrete behavior or acceptance
+> criteria; a maintainer says the fix needs core internals redesign; or
+> it is a usage/support question, not a contribution.
+
+**What went wrong.** This one row covers five separate failure modes
+(umbrella, unsettled debate, one-line wish, core redesign, support
+question), and the grade is a single `pass`/`fail`. When `issue-19`
+came back `failed: newcomer-scope` I had to open the bundle and the
+`results.json` evidence to work out which clause fired. It turned out
+to be two clauses at once ("umbrella" plus "core internals changes"),
+and neither really fits: the list is a diagnosis of one bug, and no
+maintainer says a redesign is needed.
+
+**Revision reasoning.** The fix is to make the failing clause name
+itself:
+
+1. Split the row into narrower required checks: `not-umbrella`,
+   `no-open-design-debate`, `concrete-ask`, `no-core-redesign`, and
+   `is-contribution`. A failure then names the exact clause.
+2. Or keep one row and require the evidence to start with the clause
+   that fired (for example `umbrella: ...`) and quote the line that
+   triggered it.
+3. Tighten the umbrella clause: "a single reported bug whose body lists
+   candidate causes or optional suggestions is not an umbrella; an
+   umbrella is a list of independent deliverables".
+
+I did **not** change the committed rubric this round. The run already
+met the bar at 19/20 with every category floor held, and any edit
+changes the `rubric.md` fingerprint in `eval-run.txt`. That would need
+an `--only issue-19` revise loop and then a new full confirming run.
+Option 1 plus the clarification in option 3 is the next revision. The
+trade-off is under Trade-offs below.
+
+### `ai-policy-ok` (the check that decided all three live candidates)
+
+> The policy does not ban AI-generated code or documentation outright.
+> Silence passes. Disclosure, "understand your changes", testing, or
+> human-review requirements pass (those are conditions to follow, not
+> bans). Only an explicit refusal such as "we do not accept
+> AI-generated code/documentation" fails.
+
+Path Review's `docs/CONTRIBUTING.md` only sets workflow conditions and
+has no explicit refusal, so the "conditions to follow, not bans" clause
+gives `pass` for #53, #72, and #68.
+
+### `unclaimed` (with the Path Review house rule)
+
+> All of: (1) assignees is `none`; (2) no linked PR is in state `open`;
+> (3) no claim comment in the last 90 days (relative to capture date /
+> today) that a maintainer (Owner/Member/Collaborator) has not clearly
+> released.
+
+`skill/scope.md` adds the house rule: "other students' claim comments
+... do not block an issue". So the classmate claim on #68 does not
+block it, and (1) and (2) still apply as written.
+
+### Remaining checks
+
+`repo-alive`, `issue-open`, and `has-good-first-label` passed for all
+three candidates. Their evidence strings are in the Verdict output
+below, so they are not restated here. Nothing was rejected, so ranking
+used the fit profile only.
 
 ## Trade-offs
 
@@ -69,11 +165,52 @@ Nothing was rejected; ranking used the fit profile only.
 
 ## Selection rationale
 
-Selected `#53` because it is the best fit under `scope.md`: Python work
-in `safety/`, a single bounded regex/behavior fix, and explicit failing
-tests that define done. It passed every required check and the preferred
-newcomer label. `#72` and `#68` remain strong backups if `#53` becomes
-unavailable.
+**Why it fits.** I selected
+[#53](https://github.com/codepath/pathreview-ai301-fa26-s3/issues/53)
+because it is the best match for my `scope.md` fit profile. It is
+Python work in `safety/`, one of the areas I listed. It is one bounded
+regex fix in `safety/pii_scrubber.py`, and failing tests define when it
+is done. That is the "bounded OSS fixes with tests and clear acceptance
+criteria" I said I want practice with. It has no UI styling and no
+product policy for me to invent.
+
+**What the verdict got right, and what it missed.** The `accept` holds
+up. Every required check has evidence I can check against the issue:
+the repo is open and not archived, the repo is active, nobody is
+assigned, the issue is a collaborator-filed bug with a repro snippet,
+and CONTRIBUTING has no AI ban. Ranking it above #72 and #68 is the
+right use of the fit profile. Two pieces of evidence were thinner than
+they look:
+
+- The `unclaimed` evidence ("0 comments; no linked or cross-referenced
+  PRs") was only true at the moment of the run. On re-checking
+  (2026-11-13), #53 has 29 comments, all from non-maintainer
+  classmates, and about 10 open PRs titled "fix(safety): redact
+  parenthesized ... US phone numbers". Under the house rule this still
+  passes, but the verdict did not show how crowded the issue is.
+- The issue names four failing tests. A classmate's repro on the
+  thread shows a fifth `xfail(strict=True)` test tied to #53
+  (`test_mixed_pii_and_text`), so "done" means five tests, not four.
+
+**Expected difficulty in claiming it.** Making the claim is easy:
+nobody is assigned, no maintainer has commented, and the house rule
+says classmate claims do not block, with course credit going to the PR
+I open. The hard part is everything after the claim:
+
+- *Overlap.* About 10 classmates have open PRs for the same fix. Before
+  I write code I will read those PRs so my PR is not a duplicate. My
+  plan is to cover all five `xfail` tests and handle the
+  space-separated `555 123 4567` form explicitly, with tests that
+  include `+1` and extension edge cases.
+- *Reviewer attention.* With that many PRs, a maintainer will review
+  slowly or choose one. My claim comment will include a reproduction
+  report (exact commands and output). The PR will link #53, explain the
+  regex change, and remove the `xfail` markers so CI shows the tests
+  passing.
+- *Fallback.* If a fix for #53 merges before mine, I will move to
+  [#72](https://github.com/codepath/pathreview-ai301-fa26-s3/issues/72)
+  (`api/`, est. 1–2h, zero comments). It passes every required check
+  and is the least contested of the three.
 
 ## Issue link
 
